@@ -1,12 +1,16 @@
-<h4 class='d-flex justify-content-between mb-4'>
-  <span>Noticias</span>
-  <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<h4 >
+  <span class="d-flex justify-content-start">Suas notícias</span>
+</h4>
+
+<h4 class='d-flex justify-content-end mb-3'>
+  <span class="pr-3"><%= link_to 'Criar uma nova notícia', new_post_path, class: 'btn btn-primary' %> </span>   
+  <%= link_to 'Voltar', home_index_path, class: 'btn btn-primary' %>
 </h4>
 
 <% @posts.each do |post| %>
   <%= link_to edit_post_path(post), class: 'text-decoration-none' do %> 
     <div class="card mb-3">
-      <div class="card-body">
+      <div class="card-body data-toggle="tooltip" data-placement="top" title="Clique na notícia para edita-lá"">
         <h5 class="card-title mb-1 text-dark"><%= post.title %></h5>
         <p class="text-secondary mb-0"><%= post.description %> </p>
       </div>
